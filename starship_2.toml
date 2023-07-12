@@ -27,7 +27,6 @@ $git_status\
 [](fg:#464347)\
 $fill\
 $time\
-${custom.weather}\
 $line_break\
 $character
 """
@@ -239,7 +238,7 @@ format = "[$symbol$status]($style)"
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#C594C5 fg:#1B2B34"
-format = '[[](fg:#464347 bg:none)[](fg:#C594C5 bg:#464347)🕙 $time]($style)'
+format = '[[](fg:#464347 bg:none)[](fg:#C594C5 bg:#464347)🕙 $time [▓▒░](bg:#464347 fg:#C594C5)]($style)'
 
 [custom.weather]
 when=true

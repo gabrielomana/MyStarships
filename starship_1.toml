@@ -30,7 +30,6 @@ $c\
 (↓ Toolchain version modules ↓)\
 (↓ on input line ↓)\
 $time\
-${custom.weather}\
 [](fg:#464347)\
 $line_break\
 [](bg:#464347 fg:#625d63)\
@@ -241,7 +240,8 @@ format = "[$symbol$status]($style)"
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#C594C5 fg:#1B2B34"
-format = '[[](fg:#464347 bg:#C594C5) 🕙 $time]($style)'
+format = '[[](fg:#464347 bg:#C594C5) 🕙 $time [](bg:#464347 fg:#C594C5)]($style)'
+
 
 [custom.weather]
 when=true
