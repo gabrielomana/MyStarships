@@ -18,8 +18,6 @@ $directory\
 (↓ Source control - for right side ↓)\
 $git_branch\
 $git_status\
-$git_commit\
-$git_metrics\
 (↑ Source control - for right side ↑)\
 (↓ Toolchain version modules ↓)\
 $docker_context\
@@ -151,7 +149,7 @@ style = "bg:#FAC863 fg:#111111"
 truncation_length = 6
 truncation_symbol = ""
 # ignore_branches = ["master", "main"]
-format = "[[](bg:#FAC863 fg:#464347)( $symbol$branch )[](bg:#464347 fg:#FAC863)]($style)"
+format = "[[](bg:#FAC863 fg:#464347)( $symbol$branch )]($style)"
 
 [git_status]
 style = "bg:#FAC863 fg:#111111"
@@ -166,16 +164,9 @@ modified = "📝 ${count}"
 staged = "++ ${count}"
 renamed = "👅 ${count}"
 deleted = "🗑 ${count}"
-format = "[[](bg:#FAC863 fg:#464347)( $all_status$ahead_behind )[](bg:#464347 fg:#FAC863)]($style)"
+format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#FAC863)]($style)"
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = "🔖 "
 
-[git_metrics]
-added_style = "bold blue bg:#FAC863"
-format = "[$added]($added_style)/[-$deleted]($deleted_style)"
-# format = "[$added]($added_style)/[-$deleted]($deleted_style)"
 
 # [jobs]
 # # disabled = true
