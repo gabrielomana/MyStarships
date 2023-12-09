@@ -1,0 +1,105 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+#[character] # The name of the module we are configuring is "character"
+#:was = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+#[package]
+#disabled = true
+
+format = """
+[](bg:#004566 fg:#A2E2FF)\
+$os\
+$username\
+$hostname\
+$directory\
+(↓ Source control - for right side ↓)\
+$git_branch\
+$git_status\
+(↑ Source control - for right side ↑)\
+(↓ Toolchain version modules ↓)\
+$docker_context\
+$php\
+$python\
+$rust\
+$c\
+(↓ Toolchain version modules ↓)\
+(↓ on input line ↓)\
+$time\
+[](fg:#A2E2FF)\
+$line_break\
+[](bg:#A2E2FF fg:#004566)\
+$character
+"""
+
+scan_timeout = 20
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[os]
+format = "[[](bg:#2E3440 fg:#A2E2FF)$symbol[](bg:#A2E2FF fg:#2E3440)]($style)"
+style= "bg:#2E3440 fg:#EEEEEE"
+disabled = false
+
+# This is the default symbols table.
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "﯑ "
+Gentoo = " "
+HardenedBSD = "ﲊ "
+Illumos = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = " "
+openSUSE = " "
+OracleLinux = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+Solus = "ﴱ "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+
+[username]
+show_always = true
+style_root = "bold bg:#A2E2FF fg:#EEEEEE"
+style_user = "bold bg:#5FB3B3 fg:#EEEEEE"
+format = "[[](bg:#5FB3B3 fg:#A2E2FF)$user[](bg:#A2E2FF fg:#5FB3B3)]($style)"
+
+# [sudo]
+# style = "bold green bg:#9A348E"
+# symbol = "👩 "
+# disabled = false
+#
+# # ~/.config/starship.toml
+
+[hostname]
+ssh_only = false
+format = "[[](bg:#B4BEC5 fg:#A2E2FF)[$ssh_symbol](bold) $hostname(bold red) [](bg:#A2E2FF fg:#B4BEC5)]($style)"
+style= "bg:#B4BEC5 fg:#111111"
+disabled = false
+ssh_symbol=' '
