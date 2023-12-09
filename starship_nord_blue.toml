@@ -28,7 +28,7 @@ $character
 """
 
 scan_timeout = 20
-os_bg=#65737E
+os_bg="#65737E"
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
