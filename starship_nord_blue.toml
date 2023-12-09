@@ -3,13 +3,6 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Custom symbols for different operating systems
-[os.symbols]
-Windows = " "
-Linux = " "
-macOS = " "
-# Add symbols for other operating systems as needed
-
 # Configuration for the prompt format
 format = """
 [](bg:#464347 fg:#8FBCBB)\
