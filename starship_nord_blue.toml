@@ -20,13 +20,6 @@ $git_branch\
 $git_status\
 (↑ Source control - for right side ↑)\
 (↓ Toolchain version modules ↓)\
-$docker_context\
-$php\
-$python\
-$rust\
-$c\
-(↓ Toolchain version modules ↓)\
-(↓ on input line ↓)\
 $time\
 [](fg:#464347)\
 $line_break\
@@ -35,14 +28,15 @@ $character
 """
 
 scan_timeout = 20
+os_bg=#65737E
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
 # You can also replace your username with a neat symbol like  to save some space
 [os]
-format = "[[](bg:#65737E fg:#464347)$symbol[](bg:#464347 fg:#65737E)]($style)"
-style= "bg:#65737E fg:#EEEEEE"
+format = "[[](bg:os_bg fg:#464347)$symbol[](bg:#464347 fg:os_bg)]($style)"
+style= "bg:os_bg fg:#EEEEEE"
 disabled = false
 
 # This is the default symbols table.
@@ -165,65 +159,6 @@ staged = "++ ${count}"
 renamed = "👅 ${count}"
 deleted = "🗑 ${count}"
 format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#EBCB8B)]($style)"
-
-
-
-# [jobs]
-# # disabled = true
-# symbol = "  "
-# style = "bold bg:#8FBCBB fg:#FFA200"
-# # threshold = 1
-# format = "[$symbol$number]($style)"
-
-
-[line_break]
-disabled = false
-
-[docker_context]
-symbol = " 🐳 "
-style = "bg:#65737E fg:#464347"
-format = "[[](bg:#65737E fg:#464347)$symbol$context[](bg:#464347 fg:#65737E)]($style)"
-
-[python]
-# disabled = true
-symbol = "  "
-style = "bg:#65737E fg:#111111"
-# pyenv_version_name = true
-pyenv_prefix = "pyenv "
-python_binary = "python3"
-format = '[[](fg:#464347 bg:#65737E)$symbol$pyenv_prefix$version(\($virtualenv\))[](bg:#464347 fg:#65737E)]($style)'
-
-[php]
-symbol = " 🐘 "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$version[](bg:#464347 fg:#65737E)]($style)"
-
-[rust]
-symbol = " 🦀 "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$version[](bg:#464347 fg:#65737E)]($style)"
-
-[c]
-symbol = "  "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$name $version[](bg:#464347 fg:#65737E)]($style)"
-
-
-[status]
-# disabled = false
-symbol = ""
-style = "bg:#464347 fg:#ff3322"
-format = "[$symbol$status]($style)"
-
-##########TIME MODULE###########
-
-# [time]
-# disabled = false
-# time_format = "%R" # Hour:Minute Format
-# style = "bg:#F99157 fg:#111111"
-# format = '[[](fg:#464347 bg:#F99157) 🕙 $time  [](bg:#464347 fg:#F99157)]($style)'
-
-###################################
 
 ##########TIME & WEATHER MODULE###########
 
