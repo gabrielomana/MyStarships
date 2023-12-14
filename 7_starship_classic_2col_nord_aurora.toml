@@ -270,7 +270,7 @@ format = "[ ](bold bg:bg_os fg:bright-green)[$symbol$name $version]($style)"
 # disabled = false
 # time_format = "%R" # Hour:Minute Format
 # style = "bg:orange fg:#111111"
-# format = '[[](fg:#464347 bg:orange) 🕙 $time  [](bg:#464347 fg:orange)]($style)'
+# format = '[[](fg:#464347 bg:orange) 🕙$time [](bg:#464347 fg:orange)]($style)'
 
 
 ################### TIME & WEATHER MODULE ###################
