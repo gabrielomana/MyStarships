@@ -5,25 +5,30 @@ add_newline = true
 
 # Configuration for the prompt format
 format = """
-[](bg:#464347 fg:#8FBCBB)\
+[](bg:#464347 fg:#65737E)\
 $os\
 $username\
 $hostname\
 $directory\
+$aws\
+$azure\
+$docker_context\
 (↓ Source control - for right side ↓)\
 $git_branch\
+$git_commit\
 $git_status\
 (↑ Source control - for right side ↑)\
 (↓ Toolchain version modules ↓)\
 $time\
 [](fg:#464347)\
 $line_break\
-[](bg:#464347 fg:#8FBCBB)\
+[](bg:#464347 fg:#65737E)\
 $character
 """
 
 # Timeout for scanning files in the directory (milliseconds)
 scan_timeout = 20
+
 
 # Configuration for the OS module
 [os]
@@ -74,21 +79,28 @@ Windows = " "
 # Configuration for the username module
 [username]
 show_always = true
-style_root = "bold bg:#EC5F67 fg:#EEEEEE"
-style_user = "bold bg:#5E81AC fg:#EEEEEE"
+style_root = "bg:#5E81AC fg:bold #1B2B34"
+style_user = "bg:#5E81AC fg:bold #1B2B34"
 format = "[[](bg:#5E81AC fg:#464347)$user[](bg:#464347 fg:#5E81AC)]($style)"
+
+# Configuration for the ROOT module
+# [username]
+# show_always = true
+# style_root = "bg:#bf616a fg:bold #eceff4"
+# style_user = "bg:#bf616a fg:bold #eceff4"
+# format = "[[](bg:#bf616a fg:#464347)$user[](bg:#464347 fg:#bf616a)]($style)"
 
 # Configuration for the hostname module
 [hostname]
 ssh_only = false
 format = "[[](bg:#81A1C1 fg:#464347)[$ssh_symbol](bold) $hostname(bold red) [](bg:#464347 fg:#81A1C1)]($style)"
-style = "bg:#81A1C1 fg:#111111"
+style = "bg:#81A1C1 fg:#1B2B34"
 disabled = false
 ssh_symbol=' '
 
 # Configuration for the directory module
 [directory]
-style = "bg:#88C0D0 fg:#111111"
+style = "bg:#88C0D0 fg:#1B2B34"
 read_only = "  "
 truncation_length = 3
 truncation_symbol = "…/"
@@ -112,33 +124,92 @@ format = "[[](bg:#88C0D0 fg:#464347)$path$read_only[](bg:#464347 fg:#88C0D
 #"/" = "  "
 # Add more substitutions as needed
 
+
+##################### DOCKER CONTEXTS ########################
+[docker_context]
+symbol = " 🐳 "
+style = "bg:#24B7E9 fg:#1B2B34"
+format = "[[](bg:#24B7E9 fg:#464347)[$symbol$context][](bg:#464347 fg:#24B7E9)]($style)"
+
 # Configuration for the git branch module
 [git_branch]
 symbol = " "
-style = "bg:#EBCB8B fg:#111111"
+style = "bg:#FAC863 fg:#1B2B34"
 truncation_length = 6
 truncation_symbol = ""
-format = "[[](bg:#EBCB8B fg:#464347)( $symbol$branch )]($style)"
+# ignore_branches = ["master", "main"]
+format = "[[](bg:#FAC863 fg:#464347)( $symbol$branch )]($style)"
 
-# Configuration for the git status module
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
 [git_status]
-style = "bg:#EBCB8B fg:#111111"
-# Add any additional git status configurations as needed
+style = "bg:#FAC863 fg:#1B2B34"
+conflicted = "🏳"
+ahead = "🏎💨${count} "
+behind = "😰${count} "
+diverged = "😵${count} "
+up_to_date = "✓${count} "
+untracked = "🤷${count} "
+stashed = "📦 ${count} "
+modified = "📝${count} "
+staged = "++${count} "
+renamed = "👅${count} "
+deleted = "🗑${count} "
+format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#EBCB8B)]($style)"
+
+# [aws]
+# style = "bg:#FF9900 fg:#1B2B34"
+# symbol = ' '
+# format = "[[](bg:#FF9900 fg:#464347)on [$symbol($profile )(\($region\) )]($style)[](bg:#464347 fg:#FF9900)]($style)"
+
+
+# [aws.region_aliases]
+# us-east-2='US-OH'
+# us-east-1='US-VA'
+# us-west-1='US-CA'
+# us-west-2='US-OR'
+# af-south-1='ZA-CT'
+# ap-east-1='HK'
+# ap-south-2='IN-TS'
+# ap-southeast-3='ID-JK'
+# ap-southeast-4='AU-VIC'
+# ap-south-1='IN-MH'
+# ap-northeast-3='JP-OS'
+# ap-northeast-2='KR-SE'
+# ap-southeast-1='SG'
+# ap-southeast-2='AU-NSW'
+# ap-northeast-1='JP-13'
+# ca-central-1='US-CENTRAL'
+# eu-central-1='DE-HE'
+# eu-west-1='IE'
+# eu-west-2='UK-ENG'
+# eu-south-1='IT-MI'
+# eu-west-3='FR-75'
+# eu-south-2='ES'
+# eu-north-1='SE-SE'
+# eu-central-2='CH-ZH'
+# il-central-1='IL'
+# me-south-1='BH'
+# me-central-1='AE'
+# sa-east-1='BR-SP'
+# us-gov-east-1='US-EASTERN'
+# us-gov-west-1='US-WESTERN'
+
+#[azure]
+# style = "bg:#088DD7 fg:#ffffff"
+# symbol = '☁ '
+# format = "[[](bg:#088DD7 fg:#464347)( on [$symbol($username)] )]($style)"
+
 
 # Configuration for the time module
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#C594C5 fg:#1B2B34"
-format = '[[](fg:#464347 bg:#C594C5) 🕙 $time [](bg:#464347 fg:#C594C5)]($style)'
+style = "bg:#8fbcbb fg:bold #1B2B34"
+format = '[[](fg:#464347 bg:#8fbcbb) 🕙 $time [](bg:#464347 fg:#8fbcbb)]($style)'
 
-# Configuration for a custom weather module
-[custom.weather]
-when = true
-time_format = "%R" # Hour:Minute Format
-style = "bg:#C594C5 fg:#1B2B34"
-command = "curl -s 'wttr.in/Barcelona?format=%c%t'"
-format = '[ $output [](bg:#464347 fg:#C594C5)]($style)'
 
 # Configuration for the character module
 [character]

@@ -10,27 +10,21 @@ add_newline = true
 #disabled = true
 
 format = """
-[](bg:#464347 fg:#625d63)\
+[░▒▓](bg:#2e3440 fg:#65737E)\
 $os\
 $username\
 $hostname\
 $directory\
 (↓ Source control - for right side ↓)\
 $git_branch\
-$git_status\
 (↑ Source control - for right side ↑)\
 (↓ Toolchain version modules ↓)\
-$docker_context\
-$php\
-$python\
-$rust\
-$c\
 (↓ Toolchain version modules ↓)\
 (↓ on input line ↓)\
-$time\
 [](fg:#464347)\
+$fill\
+$time\
 $line_break\
-[](bg:#464347 fg:#625d63)\
 $character
 """
 
@@ -39,12 +33,14 @@ scan_timeout = 20
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
+[fill]
+symbol="  "
+
 # You can also replace your username with a neat symbol like  to save some space
 [os]
-format = "[[](bg:#65737E fg:#464347)$symbol[](bg:#464347 fg:#65737E)]($style)"
-style= "bg:#65737E fg:#EEEEEE"
+format = "[(bg:#65737E fg:#464347) $symbol[](bg:#464347 fg:#65737E)]($style)"
+style = "bg:#65737E fg:bold #EEEEEE"
 disabled = false
-
 # This is the default symbols table.
 [os.symbols]
 Alpine = " "
@@ -87,8 +83,8 @@ Windows = " "
 [username]
 show_always = true
 style_root = "bold bg:#EC5F67 fg:#EEEEEE"
-style_user = "bold bg:#6699CC fg:#EEEEEE"
-format = "[[](bg:#6699CC fg:#464347)$user[](bg:#464347 fg:#6699CC)]($style)"
+style_user = "bold bg:#6E741C fg:#EEEEEE"
+format = "[[](bg:#6E741C fg:#464347)$user[](bg:#464347 fg:#6E741C)]($style)"
 
 # [sudo]
 # style = "bold green bg:#9A348E"
@@ -99,17 +95,17 @@ format = "[[](bg:#6699CC fg:#464347)$user[](bg:#464347 fg:#6699CC)]($style
 
 [hostname]
 ssh_only = false
-format = "[[](bg:#5FB3B3 fg:#464347)[$ssh_symbol](bold) $hostname(bold red) [](bg:#464347 fg:#5FB3B3)]($style)"
-style= "bg:#5FB3B3 fg:#111111"
+format = "[[](bg:#9FA251 fg:#464347)[$ssh_symbol](bold) $hostname(bold) [](bg:#464347 fg:#9FA251)]($style)"
+style= "bg:#9FA251 fg:#111111"
 disabled = false
 ssh_symbol=' '
 
 [directory]
-style = "bg:#99C794 fg:#111111"
+style = "bg:#ACC172 fg:#111111"
 read_only = "  "
 truncation_length = 3
 truncation_symbol = "…/"
-format = "[[](bg:#99C794 fg:#464347)$path$read_only[](bg:#464347 fg:#99C794)]($style)"
+format = "[[](bg:#ACC172 fg:#464347)$path$read_only[](bg:#464347 fg:#ACC172)]($style)"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -145,36 +141,54 @@ format = "[[](bg:#99C794 fg:#464347)$path$read_only[](bg:#464347 fg:#99C79
 
 [git_branch]
 symbol = " "
-style = "bg:#FAC863 fg:#111111"
+style = "bg:#98BE36 fg:#111111"
 truncation_length = 6
 truncation_symbol = ""
 # ignore_branches = ["master", "main"]
-format = "[[](bg:#FAC863 fg:#464347)( $symbol$branch )]($style)"
+format = "[[](bg:#98BE36 fg:#464347)( $symbol$branch )[](bg:#464347 fg:#98BE36)]($style)"
 
-[git_status]
-style = "bg:#FAC863 fg:#111111"
-conflicted = "🏳"
-ahead = "🏎💨 ${count}"
-behind = "😰 ${count}"
-diverged = "😵 ${count}"
-up_to_date = "✓ ${count}"
-untracked = "🤷 ${count}"
-stashed = "📦 ${count}"
-modified = "📝 ${count}"
-staged = "++ ${count}"
-renamed = "👅 ${count}"
-deleted = "🗑 ${count}"
-format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#FAC863)]($style)"
+# [aws]
+# style = "bg:#FF9900 fg:#1B2B34"
+# symbol = ' '
+#format = "[[](bg:#FF9900 fg:#464347)( $symbol$branch )[](bg:#464347 fg:#FF9900)]($style)"
 
 
+# [aws.region_aliases]
+# us-east-2='US-OH'
+# us-east-1='US-VA'
+# us-west-1='US-CA'
+# us-west-2='US-OR'
+# af-south-1='ZA-CT'
+# ap-east-1='HK'
+# ap-south-2='IN-TS'
+# ap-southeast-3='ID-JK'
+# ap-southeast-4='AU-VIC'
+# ap-south-1='IN-MH'
+# ap-northeast-3='JP-OS'
+# ap-northeast-2='KR-SE'
+# ap-southeast-1='SG'
+# ap-southeast-2='AU-NSW'
+# ap-northeast-1='JP-13'
+# ca-central-1='US-CENTRAL'
+# eu-central-1='DE-HE'
+# eu-west-1='IE'
+# eu-west-2='UK-ENG'
+# eu-south-1='IT-MI'
+# eu-west-3='FR-75'
+# eu-south-2='ES'
+# eu-north-1='SE-SE'
+# eu-central-2='CH-ZH'
+# il-central-1='IL'
+# me-south-1='BH'
+# me-central-1='AE'
+# sa-east-1='BR-SP'
+# us-gov-east-1='US-EASTERN'
+# us-gov-west-1='US-WESTERN'
 
-# [jobs]
-# # disabled = true
-# symbol = "  "
-# style = "bold bg:#625d63 fg:#FFA200"
-# # threshold = 1
-# format = "[$symbol$number]($style)"
-
+#[azure]
+# style = "bg:#088DD7 fg:#ffffff"
+# symbol = '☁ '
+#format = "[[](bg:#FF9900 fg:#464347)( $symbol$branch )[](bg:#464347 fg:#FF9900)]($style)"
 
 [line_break]
 disabled = false
@@ -184,31 +198,6 @@ symbol = " 🐳 "
 style = "bg:#65737E fg:#464347"
 format = "[[](bg:#65737E fg:#464347)$symbol$context[](bg:#464347 fg:#65737E)]($style)"
 
-[python]
-# disabled = true
-symbol = "  "
-style = "bg:#65737E fg:#111111"
-# pyenv_version_name = true
-pyenv_prefix = "pyenv "
-python_binary = "python3"
-format = '[[](fg:#464347 bg:#65737E)$symbol$pyenv_prefix$version(\($virtualenv\))[](bg:#464347 fg:#65737E)]($style)'
-
-[php]
-symbol = " 🐘 "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$version[](bg:#464347 fg:#65737E)]($style)"
-
-[rust]
-symbol = " 🦀 "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$version[](bg:#464347 fg:#65737E)]($style)"
-
-[c]
-symbol = "  "
-style = "bg:#65737E fg:#111111"
-format = "[[](bg:#65737E fg:#464347)$symbol$name $version[](bg:#464347 fg:#65737E)]($style)"
-
-
 [status]
 # disabled = false
 symbol = ""
@@ -216,30 +205,12 @@ style = "bg:#464347 fg:#ff3322"
 format = "[$symbol$status]($style)"
 
 ##########TIME MODULE###########
-
-# [time]
-# disabled = false
-# time_format = "%R" # Hour:Minute Format
-# style = "bg:#F99157 fg:#111111"
-# format = '[[](fg:#464347 bg:#F99157) 🕙 $time  [](bg:#464347 fg:#F99157)]($style)'
-
-###################################
-
-##########TIME & WEATHER MODULE###########
-
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#C594C5 fg:#1B2B34"
-format = '[[](fg:#464347 bg:#C594C5) 🕙 $time [](bg:#464347 fg:#C594C5)]($style)'
+style = "bg:#789E39 fg:bold #1B2B34"
+format = '[[](fg:#464347 bg:none)[](fg:#789E39 bg:#464347)🕙$time [▓▒░](bg:#464347 fg:#789E39)]($style)'
 
-
-[custom.weather]
-when=true
-time_format = "%R" # Hour:Minute Format
-style = "bg:#C594C5 fg:#1B2B34"
-command="curl -s 'wttr.in/Barcelona?format=%c%t'"
-format = '[ $output [](bg:#464347 fg:#C594C5)]($style)'
 
 ###################################
 
@@ -248,3 +219,4 @@ success_symbol = "[[](bg:#AFD700 fg:#464347)](fg:#AFD700)"
 error_symbol = "[[](bg:#ff3322 fg:#464347)](fg:#ff3322)"
 vicmd_symbol = "[[](bg:#6f6a70 fg:#464347)[](bg:#464347 fg:#6f6a70)](bold bg:#6f6a70 fg:#ff3322)"
 format = "[[](bg:#464347)$symbol ]($style)"
+
