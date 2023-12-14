@@ -201,7 +201,7 @@ format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#ACC172)]($style)"
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#789E39 fg:bold #1B2B34"
-format = '[[](fg:#464347 bg:#789E39) 🕙 $time [](bg:#464347 fg:#789E39)]($style)'
+format = '[[](fg:#464347 bg:#789E39)🕙$time [](bg:#464347 fg:#789E39)]($style)'
 
 
 # Configuration for the character module
