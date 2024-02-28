@@ -54,36 +54,36 @@ Emscripten = " "
 EndeavourOS = " "
 Fedora = " "
 FreeBSD = " "
-Garuda = "﯑ "
+Garuda = "󰛓 "
 Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
+HardenedBSD = " "
+Illumos = "󰈸 "
 Linux = " "
 Macos = " "
 Manjaro = " "
 Mariner = " "
 MidnightBSD = " "
 Mint = " "
-NetBSD = " "
+NetBSD = "🏴 "
 NixOS = " "
-OpenBSD = " "
+OpenBSD = "󰈺 "
 openSUSE = " "
-OracleLinux = " "
+OracleLinux = "󰌷 "
 Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
 Redox = " "
-Solus = "ﴱ "
+Solus = "󰠳 "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
-Windows = " "
+Windows = " "
 
 [username]
 show_always = true
-style_root = "bold bg:#EC5F67 fg:#EEEEEE"
-style_user = "bold bg:#6E741C fg:#EEEEEE"
+style_root = "bg:#EC5F67 fg:#EEEEEE"
+style_user = "bg:#6E741C fg:#EEEEEE"
 format = "[[](bg:#6E741C fg:#464347)$user[](bg:#464347 fg:#6E741C)]($style)"
 
 # [sudo]
@@ -98,11 +98,11 @@ ssh_only = false
 format = "[[](bg:#9FA251 fg:#464347)[$ssh_symbol](bold) $hostname(bold) [](bg:#464347 fg:#9FA251)]($style)"
 style= "bg:#9FA251 fg:#111111"
 disabled = false
-ssh_symbol=' '
+ssh_symbol=" "
 
 [directory]
 style = "bg:#ACC172 fg:#111111"
-read_only = "  "
+read_only = "  "
 truncation_length = 3
 truncation_symbol = "…/"
 format = "[[](bg:#ACC172 fg:#464347)$path$read_only[](bg:#464347 fg:#ACC172)]($style)"
@@ -112,13 +112,13 @@ format = "[[](bg:#ACC172 fg:#464347)$path$read_only[](bg:#464347 fg:#ACC17
 [directory.substitutions]
 "~/Documents" = " "
 "~/Music" = " "
-"~/Movies" = " "
+"~/Movies" = "󰎁 "
 "~/Pictures" = " "
 "~/Downloads" = " "
 "~/Sources" = ""
 "~/Documentos" = " "
 "~/Música" = " "
-"~/Vídeos" = " "
+"~/Vídeos" = "󰎁 "
 "~/Imágenes" = " "
 "~/Descargas" = " "
 "/git"="GITs "
@@ -140,7 +140,7 @@ format = "[[](bg:#ACC172 fg:#464347)$path$read_only[](bg:#464347 fg:#ACC17
 # format = "[[](bg:#625d63 fg:#464347) ⏱️ $duration[](bg:#464347 fg:#625d63)]($style)"
 
 [git_branch]
-symbol = " "
+symbol = "󰊢 "
 style = "bg:#98BE36 fg:#111111"
 truncation_length = 6
 truncation_symbol = ""
@@ -208,7 +208,7 @@ format = "[$symbol$status]($style)"
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#789E39 fg:bold #1B2B34"
+style = "bg:#789E39 #1B2B34"
 format = '[[](fg:#464347 bg:none)[](fg:#789E39 bg:#464347)🕙$time [▓▒░](bg:#464347 fg:#789E39)]($style)'
 
 
@@ -219,4 +219,3 @@ success_symbol = "[[](bg:#AFD700 fg:#464347)](fg:#AFD700)"
 error_symbol = "[[](bg:#ff3322 fg:#464347)](fg:#ff3322)"
 vicmd_symbol = "[[](bg:#6f6a70 fg:#464347)[](bg:#464347 fg:#6f6a70)](bold bg:#6f6a70 fg:#ff3322)"
 format = "[[](bg:#464347)$symbol ]($style)"
-

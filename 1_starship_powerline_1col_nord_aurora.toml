@@ -31,7 +31,7 @@ scan_timeout = 20
 
 # Configuration for the OS module
 [os]
-format = "[[](bg:#65737E fg:#464347)$symbol[](bg:#464347 fg:#65737E)]($style)"
+format = "[[](bg:#65737E fg:#464347) $symbol[](bg:#464347 fg:#65737E)]($style)"
 style = "bg:#65737E fg:#EEEEEE"
 disabled = false
 
@@ -49,37 +49,37 @@ Emscripten = " "
 EndeavourOS = " "
 Fedora = " "
 FreeBSD = " "
-Garuda = "﯑ "
+Garuda = "󰛓 "
 Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
+HardenedBSD = " "
+Illumos = "󰈸 "
 Linux = " "
 Macos = " "
 Manjaro = " "
 Mariner = " "
 MidnightBSD = " "
 Mint = " "
-NetBSD = " "
+NetBSD = "🏴 "
 NixOS = " "
-OpenBSD = " "
+OpenBSD = "󰈺 "
 openSUSE = " "
-OracleLinux = " "
+OracleLinux = "󰌷 "
 Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
 Redox = " "
-Solus = "ﴱ "
+Solus = "󰠳 "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
-Windows = " "
+Windows = " "
 
 # Configuration for the username module
 [username]
 show_always = true
-style_root = "bg:#b48ead fg:bold #1B2B34"
-style_user = "bg:#b48ead fg:bold #1B2B34"
+style_root = "bg:#b48ead #1B2B34"
+style_user = "bg:#b48ead #1B2B34"
 format = "[[](bg:#b48ead fg:#464347)$user[](bg:#464347 fg:#b48ead)]($style)"
 
 
@@ -97,12 +97,12 @@ ssh_only = false
 format = "[[](bg:#a3be8c fg:#464347)[$ssh_symbol](bold) $hostname(bold red) [](bg:#464347 fg:#a3be8c)]($style)"
 style = "bg:#a3be8c fg:#1B2B34"
 disabled = false
-ssh_symbol=' '
+ssh_symbol=" "
 
 # Configuration for the directory module
 [directory]
 style = "bg:#ebcb8b fg:#1B2B34"
-read_only = "  "
+read_only = "  "
 truncation_length = 3
 truncation_symbol = "…/"
 format = "[[](bg:#ebcb8b fg:#464347)$path$read_only[](bg:#464347 fg:#ebcb8b)]($style)"
@@ -111,13 +111,13 @@ format = "[[](bg:#ebcb8b fg:#464347)$path$read_only[](bg:#464347 fg:#ebcb8
 [directory.substitutions]
 "~/Documents" = " "
 "~/Music" = " "
-"~/Movies" = " "
+"~/Movies" = "󰎁 "
 "~/Pictures" = " "
 "~/Downloads" = " "
 "~/Sources" = ""
 "~/Documentos" = " "
 "~/Música" = " "
-"~/Vídeos" = " "
+"~/Vídeos" = "󰎁 "
 "~/Imágenes" = " "
 "~/Descargas" = " "
 "/git"="GITs "
@@ -127,7 +127,7 @@ format = "[[](bg:#ebcb8b fg:#464347)$path$read_only[](bg:#464347 fg:#ebcb8
 
 # Configuration for the git branch module
 [git_branch]
-symbol = " "
+symbol = "󰊢 "
 style = "bg:#d08770 fg:#1B2B34"
 truncation_length = 6
 truncation_symbol = ""
@@ -202,7 +202,7 @@ format = "[( $all_status$ahead_behind )[](bg:#464347 fg:#d08770)]($style)"
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#8fbcbb fg:bold #1B2B34"
+style = "bg:#8fbcbb #1B2B34"
 format = '[[](fg:#464347 bg:#8fbcbb)🕙$time [](bg:#464347 fg:#8fbcbb)]($style)'
 
 
